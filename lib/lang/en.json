@@ -1,0 +1,18 @@
+{
+    "all" : "All",
+    "pending" : "Pending",
+    "accepted" : "Accepted",
+    "rejected" : "Rejected",
+    "time_out" : "Timed Out",
+    "en" : "English",
+    "ar" : "Arabic",
+    "language" : "Language",
+    "orderId" : "Order ID",
+    "date" : "Date",
+    "total" : "Total",
+    "status" : "Status",
+    "noOrders" : "No Orders Available",
+    "sar" : "SAR",
+    "details" : "Details"
+
+}
