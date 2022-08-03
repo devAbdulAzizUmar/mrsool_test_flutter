@@ -1,16 +1,26 @@
 # mrsool_test
 
-A new Flutter project.
+A test Flutter project for Mrsool.
 
-## Getting Started
+The following is part of Mrsool's Accept app which targers business partners and allows them to accept/reject orders.
 
-This project is a starting point for a Flutter application.
+This clone project was developed using the Provider pattern which is a state management and dependency injection library. It allows us to write clean and maintainable code.
 
-A few resources to get you started if this is your first Flutter project:
+Challenges:
+1- One of the biggest challenges I faced during this test was to manage the UI state for all the lsit of orders, each item having its own status which needed to be reflected on the screen. Refrencing a Provider across multiple routes in the app was a challenge I hadn't faced before. To solve it, I created a seperate change notifier and wrapped the aterialPageRoute's builder with it. This allowed me to access the right instance of the Order class in the OrderDetailsScreen and listen to any changes in its data.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2- Another challenge was to create a PDF invoice of an order. Creating a pdf programatically is a tedious task. I used Flutter's pdf library, which makes it a bit easier by providing us with UI widgets that work the same as the Flutter framework. This allows us to create PDFs just like we make UI in Flutter. For example, if we want to render a text saying "Mrsool" in Fluter, we simply write Text("Mrsool"). 
+The PDF library works the same. If we want to add a text to our PDF, we can write pdf.Text("Mrsool").
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3- The generateOrder API given to me doesn't always work and sometimes returns a 400 error with the message "some items are disabled. Please enable them before proceeding." 
+
+
+Improvements:
+1- We can make the app better by making the changes appear in real time. For example, the current implementaiton requires the user to refresh the list manually if they want to see new orders. This can be improved by making it so when an order is placed, a notification is send to the user and the list is updated on its own.
+
+2- More time and attention can be given to the pdf invoice and to the UI in general to make it more appealing to users.
+
+3- 
+
+
+ 
