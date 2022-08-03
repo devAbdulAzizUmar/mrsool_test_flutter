@@ -36,6 +36,14 @@ class AppLocalizations {
   String? get noOrders => localizedData['noOrders'];
   String? get sar => localizedData['sar'];
   String? get details => localizedData['details'];
+  String? get failedToGetDetails => localizedData['failedToGetDetails'];
+  String? get items => localizedData['items'];
+  String? get grandTotal => localizedData['grandTotal'];
+  String? get accept => localizedData['accept'];
+  String? get reject => localizedData['reject'];
+  String? get statusUpdated => localizedData['statusUpdated'];
+  String? get failedUpdatingStatus => localizedData['failedUpdatingStatus'];
+  String? get updating => localizedData['updating'];
 
   String? getLocalizedText(String key) => localizedData[key];
 

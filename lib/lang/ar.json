@@ -13,6 +13,16 @@
     "status" : "حالة",
     "noOrders" : "لا توجد طلبات",
     "sar" : "ريال",
-    "details" : "تفاصيل"
+    "details" : "تفاصيل",
+    "failedToGetDetails" : "فشل في الحصول على التفاصيل",
+    "items": "منتجات",
+    "grandTotal": "المبلغ الإجمالي",
+    "accept": "قبول",
+    "reject": "رفض",
+    "statusUpdated": "تم تحديث الحالة",
+    "failedUpdatingStatus": "فشل تحديث الحالة",
+    "updating": "يتم التحديث"
+
+
 
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mrsool_test/providers/orders_provider.dart';
 import 'package:mrsool_test/widgets/order_list_item.dart';
 import 'package:provider/provider.dart';
 
@@ -31,13 +32,16 @@ class _OrdersListState extends State<OrdersList> with AutomaticKeepAliveClientMi
       );
     }
 
-    return ListView.separated(
-      itemCount: orders.length,
-      separatorBuilder: (_, __) => const SizedBox(height: 10),
-      padding: const EdgeInsets.all(10),
-      itemBuilder: (_, index) => ChangeNotifierProvider.value(
-        value: orders[index],
-        child: const OrderListItem(),
+    return RefreshIndicator(
+      onRefresh: context.read<OrdersProvider>().getAllOrders,
+      child: ListView.separated(
+        itemCount: orders.length,
+        separatorBuilder: (_, __) => const SizedBox(height: 10),
+        padding: const EdgeInsets.all(10),
+        itemBuilder: (_, index) => ChangeNotifierProvider.value(
+          value: orders[index],
+          child: const OrderListItem(),
+        ),
       ),
     );
   }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:mrsool_test/api/base_api.dart';
 
 import 'package:http/http.dart';
@@ -32,7 +34,24 @@ class OrdersApi {
     return get(
       Uri.https(
         BaseApi.baseUrl,
-        '//v1/business_orders/$orderId',
+        '/v1/business_orders/$orderId',
+      ),
+      headers: headers,
+    );
+  }
+
+  Future<Response> updateOrderStatus({required String status, required int orderId}) async {
+    final uri = Uri.https(
+      BaseApi.baseUrl,
+      '/v1/business_orders/$orderId',
+    );
+
+    return put(
+      uri,
+      body: jsonEncode(
+        {
+          "status": status,
+        },
       ),
       headers: headers,
     );

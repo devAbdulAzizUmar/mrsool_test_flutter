@@ -17,21 +17,27 @@ class OrderListItem extends StatelessWidget {
     AppLocalizations appLocalizations = AppLocalizations.of(context)!;
     final order = context.watch<Order>();
     final orderDate = Utils.getFormattedDate(order.receivedAt, context);
+
     const double itemsGap = 10;
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          OrderDetailsScreen.routeName,
-          arguments: order.id,
-        );
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return ChangeNotifierProvider.value(
+            value: order,
+            child: const OrderDetailsScreen(),
+          );
+        }));
       },
       borderRadius: BorderRadius.circular(12),
       child: Ink(
         decoration: BoxDecoration(
           border: Border.all(
-            color: order.status == Order.pending ? Theme.of(context).primaryColor : Colors.grey,
-            width: order.status == Order.pending ? 2 : 1,
+            color: order.status == Order.pending
+                ? Theme.of(context).primaryColor
+                : order.status == Order.rejected
+                    ? Colors.red.shade900
+                    : Colors.grey,
+            width: order.status == Order.pending || order.status == Order.rejected ? 2 : 1,
           ),
           borderRadius: BorderRadius.circular(12),
         ),

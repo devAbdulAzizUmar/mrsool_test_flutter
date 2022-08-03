@@ -13,6 +13,16 @@
     "status" : "Status",
     "noOrders" : "No Orders Available",
     "sar" : "SAR",
-    "details" : "Details"
+    "details" : "Details",
+    "failedToGetDetails" : "Failed to get details",
+    "items": "Items",
+    "grandTotal": "Grand Total",
+    "accept": "Accept",
+    "statusUpdated": "Status updated",
+    "failedUpdatingStatus": "Failed updating status",
+    "updating": "Updating"
+
+    
+
 
 }

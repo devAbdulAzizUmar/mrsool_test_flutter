@@ -4,6 +4,7 @@ import 'package:mrsool_test/widgets/orders_list.dart';
 import 'package:provider/provider.dart';
 
 import '../lang/app_localization.dart';
+import '../models/order.dart';
 import '../providers/orders_provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -38,6 +39,12 @@ class _HomeScreenState extends State<HomeScreen> {
     _ordersProvider = context.watch<OrdersProvider>();
     _appLocalizations = AppLocalizations.of(context)!;
 
+    final allOrders = _ordersProvider.allOrders;
+    final pendingOrders = allOrders.where(((element) => element.status == Order.pending)).toList();
+    final acceptedOrders = allOrders.where(((element) => element.status == Order.accepted)).toList();
+    final rejectedOrders = allOrders.where(((element) => element.status == Order.rejected)).toList();
+    final timedOutOrders = allOrders.where(((element) => element.status == Order.timeOut)).toList();
+
     return DefaultTabController(
       length: 5,
       initialIndex: 0,
@@ -68,11 +75,11 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             : TabBarView(
                 children: [
-                  OrdersList(orders: _ordersProvider.allOrders),
-                  OrdersList(orders: _ordersProvider.pendingOrders),
-                  OrdersList(orders: _ordersProvider.acceptedOrders),
-                  OrdersList(orders: _ordersProvider.rejectedOrders),
-                  OrdersList(orders: _ordersProvider.timedOutOrders),
+                  OrdersList(orders: allOrders),
+                  OrdersList(orders: pendingOrders),
+                  OrdersList(orders: acceptedOrders),
+                  OrdersList(orders: rejectedOrders),
+                  OrdersList(orders: timedOutOrders),
                 ],
               ),
       ),
